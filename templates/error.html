@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <title></title>
+  </head>
+  <body>
+    <div class = "container">
+      <div class = "main">
+      <h2>You are not authorized to {{message}} this item. Please select your own item in order to {{message}}.</h2>
+      <div id="home">
+      <a class="button"  href = '{{url_for('allCategory')}}'> Home </a>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

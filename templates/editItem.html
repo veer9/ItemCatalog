@@ -1,0 +1,28 @@
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+
+<h1> Edit Item </h1>
+
+<form class="my-form" action="{{ url_for('editItem',category_id = category_id, item_id=item.id)}}" method = 'post'>
+
+<dl>
+  <div class="form-grp">
+		<dt>Name:</dt>
+			<dd><input type ='text' size='30' name='name' placeholder = '{{item.name }}'></dd>
+	</div>
+	<div class="form-grp">
+		<dt>Description:</dt>
+			<dd><textarea name = 'description' rows='5' cols='40' placeholder = '{{item.description }}'></textarea></dd>
+	</div>
+</dl>
+
+
+	<input class="button" type='submit' value='Submit'>
+
+	<a class="button" href = '{{url_for('categoryList', category_id = category_id)}}'> Cancel </a>
+</form>
+</body>
+</html>

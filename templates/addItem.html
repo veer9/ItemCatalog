@@ -1,0 +1,39 @@
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+
+<h1> Add Item </h1>
+
+<form class="my-form" action="{{ url_for('addItem')}}" method = 'post'>
+
+<dl>
+
+			<div class="form-grp">
+				<dt>Name:</dt>
+					<dd><input type ='text' size='30' name='name' placeholder = 'Enter name'></dd>
+			</div>
+			<div class="form-grp">
+			<dt>Description:</dt>
+				<dd><textarea name = 'description' rows='5' cols='40' placeholder = 'Enter Description'></textarea></dd>
+			</div>
+			<div class="form-grp">
+			<dt>Categories:</dt>
+					<select id="dropdown" name = 'cat_name'>
+					{% for category in category_list %}
+		    <dd><option value= "{{category.name}}" SELECTED>{{ category.name }}<option></dd>
+		    {% endfor %}
+			</select>
+		</div>
+	</dl>
+
+
+<input class="button" type='submit' value='Submit'>
+
+<a class="button" href = '{{url_for('allCategory')}}'> Cancel </a>
+
+</form>
+
+</body>
+</html>

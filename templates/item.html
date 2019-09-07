@@ -1,0 +1,47 @@
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+
+
+		<div class="content_list">
+			<div id='cats'>
+				<h1>{{ category.name }}</h1>
+			</div>
+
+
+			<div class = 'flash'>
+			      {% with messages = get_flashed_messages() %}
+	      {% if messages %}
+
+	        <ul>
+	        {% for message in messages %}
+	            <li> <strong> {{ message }} </strong> </li>
+	        {% endfor %}
+	        </ul>
+	        {% endif %}
+	    {% endwith %}
+
+			</div>
+
+			<div id='latest_items'>
+			{% for i in items %}
+				<ul>
+					<a href='{{url_for('description', category_id=category.id, item_id= i.id)}}' ><span class = 'name'><li>{{i.name}}</li></span></a>
+				</ul>
+
+			{% endfor %}
+			<br>
+			<div id="home">
+			<a class="button"  href = '{{url_for('allCategory')}}'> Home </a>
+			</div>
+			</div>
+
+		</div>
+
+
+	</body>
+
+
+</html>
